@@ -1,7 +1,7 @@
 import socket
 import sys
 
-HOST = ''
+HOST = '192.168.1.94'
 PORT = 6000
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,4 +24,8 @@ while True:
     line = data.decode('UTF-8')
     line = line.replace("\n","")
     print(line)
+    cmmd = input('Enter Command : ')
+    cmmd = cmmd.encode()
+    conn.send(cmmd)
+    print("command send")
 s.close()
